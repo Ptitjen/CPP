@@ -6,7 +6,7 @@
 /*   By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:14:58 by jeulliot          #+#    #+#             */
-/*   Updated: 2022/06/28 18:56:06 by jeulliot         ###   ########.fr       */
+/*   Updated: 2022/06/28 20:01:53 by jeulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void    Contact::init(void)
 
 void    Contact::display(void)
 {
+    std::cout << std::endl;
     std::cout.width(16);
     std::cout << std::left << "First name: " ;
     std::cout << this->firstName << std::endl;
@@ -50,5 +51,5 @@ void    Contact::display(void)
     std::cout << this->phoneNumber << std::endl;
     std::cout.width(16);
     std::cout << std::left << "Darkest secret: ";
-    std::cout << this->darkestSecret << std::endl;
+    std::cout << this->darkestSecret << std::endl << std::endl;
 }

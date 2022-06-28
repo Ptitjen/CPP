@@ -6,22 +6,22 @@
 /*   By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 16:13:35 by jeulliot          #+#    #+#             */
-/*   Updated: 2022/06/28 19:15:56 by jeulliot         ###   ########.fr       */
+/*   Updated: 2022/06/28 19:28:28 by jeulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "contact.class.hpp"
 #include "phonebook.class.hpp"
-#include <string.h>
 
 int main (void) 
 {
     Phonebook p;
-    
+    std::cout << "\U0001F4DE Welcome to your awesome PhoneBook ! \U0001F4DE" << std::endl;
     while (1)
     {
         std::string cmd;
-        std::cout << "What do you want to do? ADD/SEARCH/EXIT" << std::endl;
+        std::cout << "What do you want to do? (ADD/SEARCH/EXIT)" << std::endl;
         std::cin >> cmd;
         if (cmd == "SEARCH")
             p.searchContact();
