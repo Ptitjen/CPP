@@ -6,13 +6,15 @@
 #    By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 16:13:33 by jeulliot          #+#    #+#              #
-#    Updated: 2022/06/28 15:10:34 by jeulliot         ###   ########.fr        #
+#    Updated: 2022/06/28 15:13:12 by jeulliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= megaphone.cpp
+SRCS	= main.cpp \
+			phonebook.cpp \
+			contact.cpp
 
-NAME	= megaphone
+NAME	= phonebook
 
 RM	= @rm -f
 
