@@ -6,7 +6,7 @@
 /*   By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:15:02 by jeulliot          #+#    #+#             */
-/*   Updated: 2022/06/28 18:38:50 by jeulliot         ###   ########.fr       */
+/*   Updated: 2022/06/28 19:07:41 by jeulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Phonebook::Phonebook(void){
 }
 
 Phonebook::~Phonebook(void){
-    std::cout << "Destroying your phonebook" << std::endl;
+    std::cout << "The program quits and the contacts are lost forever!" << std::endl;
     return;
 }
 
@@ -45,10 +45,21 @@ std::string   Phonebook::trunkedString(std::string str)
     }    
 }
 
-void    Phonebook::displayList(void) //a faire
+void    Phonebook::displayList(void)
 {
     int i = 0;
 
+    std::cout.width(10);
+    std::cout << "Index" << "|";
+    std::cout.width(10);
+    std::cout << "First name" << "|";
+    std::cout.width(10);
+    std::cout << "Last name" << "|";
+    std::cout.width(10);
+    std::cout << "Nickname" << "|" << std::endl;
+    std::cout.width(44);
+    std::cout << std::cout.fill('-') << std::endl;;
+    std::cout.fill(' ');
     while (i < this->nbOfContact)
     {
         std::cout.width(10);
@@ -58,7 +69,7 @@ void    Phonebook::displayList(void) //a faire
         std::cout.width(10);
         std::cout << trunkedString(this->contactArray[i].lastName) << "|";
         std::cout.width(10);
-        std::cout << trunkedString(this->contactArray[i].nickname) << std :: endl;
+        std::cout << trunkedString(this->contactArray[i].nickname) << "|" << std::endl;
         i ++;
     }
 }
@@ -96,19 +107,25 @@ void    Phonebook::searchContact(void)
 
 void    Phonebook::addContact()
 {
-    if (this->nbOfContact == 7)
-        this->contactArray[7].init();
-    while (this->contactArray[nbOfContact].firstName == "")
-        this->contactArray[nbOfContact].firstName = Phonebook::askField("First name:");
-    while (this->contactArray[nbOfContact].lastName == "")
-        this->contactArray[nbOfContact].lastName = Phonebook::askField("Last name:");
-    while (this->contactArray[nbOfContact].nickname == "")
-        this->contactArray[nbOfContact].nickname = Phonebook::askField("Nickname:");
-    while (this->contactArray[nbOfContact].phoneNumber == "")
-        this->contactArray[nbOfContact].phoneNumber = Phonebook::askField("Phone number:");
-    while (this->contactArray[nbOfContact].darkestSecret == "")
-        this->contactArray[nbOfContact].darkestSecret = Phonebook::askField("Darkest secret:");
-    if (this->nbOfContact != 7)
+    int contactToSet = this->nbOfContact;
+
+    if (this->nbOfContact == 8)
+    {
+        this->contactArray[0].init();
+        contactToSet = 0;
+        std::cout << "You already have 8 contacts. Erasing your oldest contact" << std::endl;
+    }
+    while (this->contactArray[contactToSet].firstName == "")
+        this->contactArray[contactToSet].firstName = Phonebook::askField("First name:");
+    while (this->contactArray[contactToSet].lastName == "")
+        this->contactArray[contactToSet].lastName = Phonebook::askField("Last name:");
+    while (this->contactArray[contactToSet].nickname == "")
+        this->contactArray[contactToSet].nickname = Phonebook::askField("Nickname:");
+    while (this->contactArray[contactToSet].phoneNumber == "")
+        this->contactArray[contactToSet].phoneNumber = Phonebook::askField("Phone number:");
+    while (this->contactArray[contactToSet].darkestSecret == "")
+        this->contactArray[contactToSet].darkestSecret = Phonebook::askField("Darkest secret:");
+    if (this->nbOfContact != 8)
         this->nbOfContact ++;
     return;
 }

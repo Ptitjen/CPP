@@ -6,7 +6,7 @@
 /*   By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:14:58 by jeulliot          #+#    #+#             */
-/*   Updated: 2022/06/28 18:12:38 by jeulliot         ###   ########.fr       */
+/*   Updated: 2022/06/28 18:56:06 by jeulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,19 @@ void    Contact::init(void)
 
 void    Contact::display(void)
 {
-    std::cout << "First name : " << this->firstName << std::endl;
-    std::cout << "Last name : " << this->lastName << std::endl;
-    std::cout << "Nickname : " << this->nickname << std::endl;
-    std::cout << "Phone number : " << this->phoneNumber << std::endl;
-    std::cout << "Darkest secret : " << this->darkestSecret << std::endl;
+    std::cout.width(16);
+    std::cout << std::left << "First name: " ;
+    std::cout << this->firstName << std::endl;
+    std::cout.width(16);
+    std::cout << std::left << "Last name: ";
+    std::cout << this->lastName << std::endl;
+    std::cout.width(16);
+    std::cout << std::left << "Nickname: ";
+    std::cout << this->nickname << std::endl;
+    std::cout.width(16);
+    std::cout << std::left << "Phone number: ";
+    std::cout << this->phoneNumber << std::endl;
+    std::cout.width(16);
+    std::cout << std::left << "Darkest secret: ";
+    std::cout << this->darkestSecret << std::endl;
 }

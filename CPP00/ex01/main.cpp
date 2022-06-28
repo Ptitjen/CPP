@@ -6,7 +6,7 @@
 /*   By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 16:13:35 by jeulliot          #+#    #+#             */
-/*   Updated: 2022/06/28 17:22:15 by jeulliot         ###   ########.fr       */
+/*   Updated: 2022/06/28 19:15:56 by jeulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ int main (void)
     
     while (1)
     {
-        char cmd[1000]; //voir taille
+        std::string cmd;
         std::cout << "What do you want to do? ADD/SEARCH/EXIT" << std::endl;
         std::cin >> cmd;
-        if (strcmp(cmd, "SEARCH") == 0)
+        if (cmd == "SEARCH")
             p.searchContact();
-        else if (strcmp(cmd, "ADD") == 0)
+        else if (cmd == "ADD")
             p.addContact();
-        else if (strcmp(cmd, "EXIT") == 0)
+        else if (cmd == "EXIT")
             return (0);
         else
             std::cout << "Wrong command" << std::endl;
