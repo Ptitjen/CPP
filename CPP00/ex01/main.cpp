@@ -6,7 +6,7 @@
 /*   By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 16:13:35 by jeulliot          #+#    #+#             */
-/*   Updated: 2022/06/28 19:28:28 by jeulliot         ###   ########.fr       */
+/*   Updated: 2022/06/28 20:20:08 by jeulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
 int main (void) 
 {
     Phonebook p;
+
+    std::cout << std::endl;
     std::cout << "\U0001F4DE Welcome to your awesome PhoneBook ! \U0001F4DE" << std::endl;
+    std::cout << std::endl;
     while (1)
     {
         std::string cmd;
