@@ -6,7 +6,7 @@
 /*   By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 16:13:35 by jeulliot          #+#    #+#             */
-/*   Updated: 2022/06/28 20:20:08 by jeulliot         ###   ########.fr       */
+/*   Updated: 2022/06/28 20:28:45 by jeulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,11 @@ int main (void)
         else if (cmd == "EXIT")
             return (0);
         else
-            std::cout << "Wrong command" << std::endl;
+        {
+            std::cout << std::endl;
+            std::cout << "\U0001F6AB Wrong command \U0001F6AB" << std::endl;
+            std::cout << std::endl;
+        }
     }
     return 0;
 }
