@@ -6,13 +6,13 @@
 #    By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 16:13:33 by jeulliot          #+#    #+#              #
-#    Updated: 2022/06/28 15:13:12 by jeulliot         ###   ########.fr        #
+#    Updated: 2022/06/28 20:13:47 by jeulliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= main.cpp \
-			phonebook.cpp \
-			contact.cpp
+			phonebook.class.cpp \
+			contact.class.cpp
 
 NAME	= phonebook
 
