@@ -6,13 +6,14 @@
 #    By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 16:13:33 by jeulliot          #+#    #+#              #
-#    Updated: 2022/06/29 15:00:09 by jeulliot         ###   ########.fr        #
+#    Updated: 2022/06/29 15:09:17 by jeulliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= megaphone.cpp
+SRCS	= tests.cpp \
+			Account.cpp
 
-NAME	= megaphone
+NAME	= no_name
 
 RM	= @rm -f
 
@@ -20,7 +21,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 CC = g++ -std=c++98
 
-all:	$(NAME)
+all:	$(NAME)		
 
 $(NAME):	${SRCS}
 			@${CC} ${CFLAGS} ${SRCS} -o ${NAME}			

@@ -6,22 +6,21 @@
 #    By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 16:13:33 by jeulliot          #+#    #+#              #
-#    Updated: 2022/06/29 14:21:26 by jeulliot         ###   ########.fr        #
+#    Updated: 2022/06/29 15:05:18 by jeulliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= main.cpp \
-			phonebook.class.cpp \
-			contact.class.cpp
+			Phonebook.cpp \
+			Contact.cpp
 
-NAME	= phonebook
+NAME	= awesome_phonebook
 
 RM	= @rm -f
 
 CFLAGS = -Wall -Wextra -Werror
 
-#CC = g++ -std=c++98
-CC=clang++
+CC = g++ -std=c++98
 
 all:	$(NAME)		
 

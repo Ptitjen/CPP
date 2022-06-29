@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.class.hpp                                :+:      :+:    :+:   */
+/*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:20:11 by jeulliot          #+#    #+#             */
-/*   Updated: 2022/06/29 14:38:21 by jeulliot         ###   ########.fr       */
+/*   Updated: 2022/06/29 15:05:47 by jeulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PHONEBOOK_H
 
 # include <iostream>
-# include "contact.class.hpp"
+# include "Contact.hpp"
 
 class Phonebook {
 

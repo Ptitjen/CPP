@@ -6,13 +6,13 @@
 /*   By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 16:13:35 by jeulliot          #+#    #+#             */
-/*   Updated: 2022/06/28 20:28:45 by jeulliot         ###   ########.fr       */
+/*   Updated: 2022/06/29 15:06:04 by jeulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include "contact.class.hpp"
-#include "phonebook.class.hpp"
+#include "Contact.hpp"
+#include "Phonebook.hpp"
 
 int main (void) 
 {

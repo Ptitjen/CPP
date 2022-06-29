@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.class.cpp                                  :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:14:58 by jeulliot          #+#    #+#             */
-/*   Updated: 2022/06/29 14:37:57 by jeulliot         ###   ########.fr       */
+/*   Updated: 2022/06/29 15:06:15 by jeulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "contact.class.hpp"
+#include "Contact.hpp"
 #include <iostream>
 
 Contact::Contact(void)

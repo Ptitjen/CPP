@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.class.cpp                                :+:      :+:    :+:   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:15:02 by jeulliot          #+#    #+#             */
-/*   Updated: 2022/06/29 14:37:49 by jeulliot         ###   ########.fr       */
+/*   Updated: 2022/06/29 15:05:37 by jeulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.class.hpp"
-#include "contact.class.hpp"
+#include "Phonebook.hpp"
+#include "Contact.hpp"
 
 Phonebook::Phonebook(void){
     this->nbOfContact = 0;
