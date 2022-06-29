@@ -6,7 +6,7 @@
 /*   By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:17:47 by jeulliot          #+#    #+#             */
-/*   Updated: 2022/06/28 18:08:35 by jeulliot         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:38:14 by jeulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,22 @@ class Contact {
 
     public:
 
+        Contact(void);
+        ~Contact(void);
+
+        void    init(void);
+        void    displayFull(void);
+        void    displayPartial(int i);
+        void    changeInfo(std::string info[5]);
+        std::string   trunkedString(std::string str);
+
+    private:
+    
         std::string firstName;
         std::string lastName;
         std::string nickname;
         std::string phoneNumber;
         std::string darkestSecret;
-
-        Contact(void);
-        ~Contact(void);
-
-        void    init(void);
-        void    display(void);
 };
 
 #endif

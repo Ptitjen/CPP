@@ -6,7 +6,7 @@
 #    By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 16:13:33 by jeulliot          #+#    #+#              #
-#    Updated: 2022/06/28 20:13:47 by jeulliot         ###   ########.fr        #
+#    Updated: 2022/06/29 14:21:26 by jeulliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ RM	= @rm -f
 
 CFLAGS = -Wall -Wextra -Werror
 
-CC = g++ -std=c++98
+#CC = g++ -std=c++98
+CC=clang++
 
 all:	$(NAME)		
 

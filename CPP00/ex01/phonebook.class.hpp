@@ -6,7 +6,7 @@
 /*   By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:20:11 by jeulliot          #+#    #+#             */
-/*   Updated: 2022/06/28 19:47:18 by jeulliot         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:38:21 by jeulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,5 @@ class Phonebook {
 		int			searchInList(std::string cmd);
 		void		eraseContact(void);
 		std::string	askField(std::string field);
-		std::string	trunkedString(std::string str);
-
 };
 #endif

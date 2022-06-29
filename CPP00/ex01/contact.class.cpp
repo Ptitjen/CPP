@@ -6,7 +6,7 @@
 /*   By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:14:58 by jeulliot          #+#    #+#             */
-/*   Updated: 2022/06/28 20:26:35 by jeulliot         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:37:57 by jeulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,33 @@ void    Contact::init(void)
     return;
 }
 
-void    Contact::display(void)
+std::string   Contact::trunkedString(std::string str)
+{
+    std::string trunked;
+
+    if (str.length() <= 10)
+        return (str);
+    else 
+    {
+        trunked = str.substr(0,9);
+        trunked.append (1, '.');
+        return (trunked);
+    }    
+}
+
+void    Contact::displayPartial(int i)
+{
+    std::cout.width(10);
+    std::cout << std::right << i + 1 << "|";
+    std::cout.width(10);
+    std::cout << std::right << trunkedString(this->firstName) << "|";
+    std::cout.width(10);
+    std::cout << std::right << trunkedString(this->lastName) << "|";
+    std::cout.width(10);
+    std::cout << std::right << trunkedString(this->nickname) << "|" << std::endl;
+}
+
+void    Contact::displayFull(void)
 {
     std::cout << std::endl;
     std::cout.width(16);
@@ -53,3 +79,13 @@ void    Contact::display(void)
     std::cout << std::left << "Darkest secret: ";
     std::cout << this->darkestSecret << std::endl << std::endl;
 }
+
+void    Contact::changeInfo(std::string info[5])//pour addcontact
+{
+    this->firstName = info[0];
+    this->lastName = info[1];
+    this->nickname = info[2];
+    this->phoneNumber = info[3];
+    this->darkestSecret = info[4];
+}
+
