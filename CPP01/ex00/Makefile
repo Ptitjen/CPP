@@ -6,12 +6,16 @@
 #    By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 16:13:33 by jeulliot          #+#    #+#              #
-#    Updated: 2022/06/29 15:09:41 by jeulliot         ###   ########.fr        #
+#    Updated: 2022/06/30 12:42:55 by jeulliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= 
-NAME	= 
+SRCS	= Zombie.cpp \
+			newZombie.cpp \
+			randomChump.cpp \
+			main.cpp
+			
+NAME	= zombies
 
 RM	= @rm -f
 

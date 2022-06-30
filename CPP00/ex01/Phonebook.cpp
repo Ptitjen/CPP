@@ -27,9 +27,10 @@ Phonebook::~Phonebook(void){
 
 std::string   Phonebook::askField(std::string field)
 {
-    std::string cmd = "";
+    
+    std::string cmd ;
     std::cout << field << std::endl;
-    std::cin >> cmd;
+    getline(std::cin, cmd);
     return (cmd);
 }
 
@@ -102,7 +103,7 @@ void    Phonebook::eraseContact()
     std::cout << "\U0001F635 You already have 8 contacts. Erasing your oldest contact." << std::endl << std::endl;
 }
 
-void    Phonebook::addContact()//changer
+void    Phonebook::addContact()
 {
     std::string tmp[5] = {"", "", "", "", ""};
 

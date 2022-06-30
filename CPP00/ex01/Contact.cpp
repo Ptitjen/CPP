@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-#include <iostream>
 
 Contact::Contact(void)
 {
@@ -80,7 +79,7 @@ void    Contact::displayFull(void)
     std::cout << this->darkestSecret << std::endl << std::endl;
 }
 
-void    Contact::changeInfo(std::string info[5])//pour addcontact
+void    Contact::changeInfo(std::string info[5])
 {
     this->firstName = info[0];
     this->lastName = info[1];
