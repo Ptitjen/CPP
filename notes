@@ -1,0 +1,2 @@
+cin >> str mais => tableau de string => premier mot ds str et la suite ds buffer
+=> utiliser getline(std::cin, cmd);
