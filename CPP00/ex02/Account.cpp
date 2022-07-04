@@ -6,7 +6,7 @@
 /*   By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 15:10:06 by jeulliot          #+#    #+#             */
-/*   Updated: 2022/06/29 17:12:34 by jeulliot         ###   ########.fr       */
+/*   Updated: 2022/07/04 15:24:29 by jeulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,23 +126,14 @@ void	Account::displayStatus( void ) const
 /* To test with diff : std::cout <<"[19920104_091532]"; */
 void	Account::_displayTimestamp( void )
 {
-    std::time_t now = std::time(nullptr);
-    tm *ltm = localtime(&now);
-    std::cout << "[" << 1900+ltm->tm_year;
-    if (1 + ltm->tm_mon < 10)
-        std::cout << "0";
-    std::cout << 1 + ltm->tm_mon;
-    if (ltm->tm_mday < 10)
-        std::cout << "0";
-    std::cout << ltm->tm_mday << "_";
-    if (ltm->tm_hour < 10)
-        std::cout << "0";
-    std::cout << ltm->tm_hour;
-    if (ltm->tm_min < 10)
-        std::cout << "0";
-    std::cout << ltm->tm_min;
-    if (ltm->tm_sec < 10)
-        std::cout << "0";
-    std::cout << ltm->tm_sec << "]";
+    time_t rawtime;
+    struct tm * timeinfo;
+    char buffer [80];
+
+    time (&rawtime);
+    timeinfo = localtime (&rawtime);
+
+    strftime (buffer,80,"[%Y%m%d_%H%M%S]",timeinfo);
+    std::cout << buffer;
     return;
 }

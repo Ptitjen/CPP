@@ -2,7 +2,7 @@
 
 Zombie*    zombieHorde(int N, std::string name);
 
-/* Goal : creating multiple Zombies with new array */
+/* Goal : creating multiple Zombies with new [] */
 int main (void)
 {
 	Zombie* Z = zombieHorde(42, "Zombicorn");
