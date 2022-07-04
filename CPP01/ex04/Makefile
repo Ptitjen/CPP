@@ -6,13 +6,13 @@
 #    By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 16:13:33 by jeulliot          #+#    #+#              #
-#    Updated: 2022/07/04 15:03:06 by jeulliot         ###   ########.fr        #
+#    Updated: 2022/07/04 15:40:35 by jeulliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= main.cpp
 			
-NAME	= zombie_horde
+NAME	= sed_is_for_losers
 
 RM	= @rm -f
 
