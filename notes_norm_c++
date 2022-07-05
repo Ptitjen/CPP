@@ -1,0 +1,18 @@
+forbidden until mod8:
+no container : vector, list, map
+algorithms
+namespace
+friend
+boost library
+printf
+alloc
+free
+
+if new => delete
+no function implemantation in header
+
+
+CORRIGER UN FICHIER 
+clang-tidy --fix-errors Account.cpp
+
+

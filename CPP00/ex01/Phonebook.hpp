@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:20:11 by jeulliot          #+#    #+#             */
-/*   Updated: 2022/06/29 15:05:47 by jeulliot         ###   ########.fr       */
+/*   Updated: 2022/07/05 14:26:55 by jeulliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+#define PHONEBOOK_H
 
-# include <iostream>
-# include "Contact.hpp"
+#include <iostream>
 
-class Phonebook {
+#include "Contact.hpp"
 
-    public:
+class PhoneBook {
+ public:
+  PhoneBook(void);
+  ~PhoneBook(void);
+  void searchContact(void);
+  void addContact(void);
 
-        Phonebook(void);
-        ~Phonebook(void);       
-		void		searchContact(void);		
-        void		addContact(void);
+ private:
+  Contact contactArray[8];
+  int nbOfContact;
 
-	private:
-		
-		Contact contactArray[8];
-        int     nbOfContact;
-
-		void		displayList(void);
-		int			searchInList(std::string cmd);
-		void		eraseContact(void);
-		std::string	askField(std::string field);
+  int searchInList(std::string cmd);
+  void displayList(void);
+  void eraseContact(void);
+  static std::string askField(const std::string& field);
 };
 #endif
