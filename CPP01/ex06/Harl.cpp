@@ -11,10 +11,6 @@ void Harl::harlFilter(std::string level) {
     if (level == list[i]) start = i;
   }
   switch (start) {
-    case -1:
-      std::cout << "[ Probably complaining about insignificant problems ]"
-                << std::endl;
-      break;
     case 0:
       debug();
       info();
@@ -32,6 +28,10 @@ void Harl::harlFilter(std::string level) {
       break;
     case 3:
       error();
+      break;
+    default:
+      std::cout << "[ Probably complaining about insignificant problems ]"
+                << std::endl;
       break;
   }
 }

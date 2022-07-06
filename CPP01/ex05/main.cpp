@@ -19,9 +19,9 @@ int main(void) {
   h.complain("Unicorn");
   std::cout << std::endl << std::endl;
 
-  std::cout << "****************************************" << std::endl;
-  std::cout << "Testing Harl with 'Unicorn eat rainbows'" << std::endl;
-  std::cout << "****************************************" << std::endl
+  std::cout << "*****************************************" << std::endl;
+  std::cout << "Testing Harl with 'Unicorns eat rainbows'" << std::endl;
+  std::cout << "*****************************************" << std::endl
             << std::endl;
   h.complain("Unicorn eat rainbows");
   std::cout << std::endl << std::endl;
