@@ -10,10 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= Fixed.cpp \
+SRCS	= Point.cpp \
+			Fixed.cpp \
 			main.cpp
 			
-NAME	= fixed
+NAME	= bsp
 
 RM	= @rm -f
 
