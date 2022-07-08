@@ -2,19 +2,17 @@
 
 #include <iostream>
 
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap(const std::string name)
     : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
   std::cout << "ClapTrap contructor called \U0001F916." << std::endl;
-  displayStatus();
 }
 
 ClapTrap::ClapTrap(ClapTrap const& f) {
-  this->_name = f._name;
+  _name = f._name;
   this->_hitPoints = f._hitPoints;
   this->_energyPoints = f._energyPoints;
   this->_attackDamage = f._attackDamage;
   std::cout << "ClapTrap copy contructor called \U0001F916." << std::endl;
-  displayStatus();
 };
 
 ClapTrap& ClapTrap::operator=(ClapTrap const& f) {
@@ -23,13 +21,12 @@ ClapTrap& ClapTrap::operator=(ClapTrap const& f) {
   this->_energyPoints = f._energyPoints;
   this->_attackDamage = f._attackDamage;
   std::cout << "ClapTrap affectation operator= called \U0001F916." << std::endl;
-  displayStatus();
+
   return (*this);
 };
 
 ClapTrap::~ClapTrap() {
-  std::cout << "ClapTrap " << _name << " has been destroyed \U0001F92F."
-            << std::endl;
+  std::cout << "ClapTrap destructor called \U0001F92F." << std::endl;
 };
 
 void ClapTrap::displayStatus() {
@@ -52,7 +49,7 @@ void ClapTrap::attack(const std::string& target) {
     std::cout << "ClapTrap " << _name << " attacks " << target << ", causing "
               << this->_attackDamage << " point"
               << (this->_attackDamage <= 1 ? "" : "s")
-              << " of damage ! \U0001F52B 	" << std::endl;
+              << " of damage ! \U0001F52B" << std::endl;
     displayStatus();
     ;
 
@@ -88,4 +85,14 @@ void ClapTrap::beRepaired(unsigned int amount) {
   else if (this->_energyPoints == 0)
     std::cout << _name << " does not have enough energy to repair ! \U0001F6AB"
               << std::endl;
+};
+
+unsigned int ClapTrap::getDefaultEnergyPoints(void) {
+  return (defaultEnergyPoints);
+};
+unsigned int ClapTrap::getDefaultHitPoints(void) {
+  return (defaultHitPoints);
+};
+unsigned int ClapTrap::getDefaultAttackDamage(void) {
+  return (defaultAttackDamage);
 };
