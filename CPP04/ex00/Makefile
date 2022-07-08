@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+         #
+#    By: jenny <jenny@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 16:13:33 by jeulliot          #+#    #+#              #
-#    Updated: 2022/07/08 19:35:06 by jeulliot         ###   ########.fr        #
+#    Updated: 2022/07/08 22:49:11 by jenny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS	= Dog.cpp \
 			WrongAnimal.cpp \
 			main.cpp
 			
-NAME	= fixed
+NAME	= animals
 
 RM	= @rm -f
 

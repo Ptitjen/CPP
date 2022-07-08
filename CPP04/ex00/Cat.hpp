@@ -8,10 +8,8 @@ class Cat : public Animal {
   Cat();                         // Constructeur par défaut
   Cat(Cat const& f);             // Constructeur de recopie
   Cat& operator=(Cat const& f);  // Operator d'affectation
-  ~Cat();                        // Destructeur
-
- private:
-  void makeSound() const;
+  virtual ~Cat();                // Destructeur
+  virtual void makeSound() const;
 };
 
 #endif

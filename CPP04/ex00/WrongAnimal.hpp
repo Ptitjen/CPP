@@ -8,7 +8,7 @@ class WrongAnimal {
   WrongAnimal();                                 // Constructeur par défaut
   WrongAnimal(WrongAnimal const& f);             // Constructeur de recopie
   WrongAnimal& operator=(WrongAnimal const& f);  // Operator d'affectation
-  ~WrongAnimal();                                // Destructeur
+  virtual ~WrongAnimal();                        // Destructeur
 
   static void makeSound();
   std::string getType() const;

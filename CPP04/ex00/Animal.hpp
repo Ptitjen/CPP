@@ -8,15 +8,13 @@ class Animal {
   Animal();                            // Constructeur par défaut
   Animal(Animal const& f);             // Constructeur de recopie
   Animal& operator=(Animal const& f);  // Operator d'affectation
-  ~Animal();                           // Destructeur
+  virtual ~Animal();                   // Destructeur
 
   std::string getType() const;
+  virtual void makeSound() const;
 
  protected:
   std::string type;
-
- private:
-  void makeSound() const;
 };
 
 #endif

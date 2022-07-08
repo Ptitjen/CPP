@@ -2,6 +2,7 @@
 
 Dog::Dog() {
   std::cout << "Dog Default constructor called \U0001F436" << std::endl;
+  type = "Dog";
 }
 
 Dog::Dog(Dog const& f) : Animal(f) {

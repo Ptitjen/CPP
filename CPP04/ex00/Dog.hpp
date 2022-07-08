@@ -8,10 +8,8 @@ class Dog : public Animal {
   Dog();                         // Constructeur par défaut
   Dog(Dog const& f);             // Constructeur de recopie
   Dog& operator=(Dog const& f);  // Operator d'affectation
-  ~Dog();                        // Destructeur
-
- private:
-  void makeSound() const;
+  virtual ~Dog();                // Destructeur
+  virtual void makeSound() const;
 };
 
 #endif

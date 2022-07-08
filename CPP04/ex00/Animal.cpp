@@ -2,7 +2,8 @@
 
 Animal::Animal() {
   std::cout << "Animal Default constructor called" << std::endl;
-}
+  type = "Unknown animal";
+};
 
 Animal::Animal(Animal const& f) {
   std::cout << "Animal Copy constructor called" << std::endl;

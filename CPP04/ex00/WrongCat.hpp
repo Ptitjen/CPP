@@ -8,7 +8,7 @@ class WrongCat : public WrongAnimal {
   WrongCat();                              // Constructeur par défaut
   WrongCat(WrongCat const& f);             // Constructeur de recopie
   WrongCat& operator=(WrongCat const& f);  // Operator d'affectation
-  ~WrongCat();                             // Destructeur
+  virtual ~WrongCat();                     // Destructeur
 };
 
 #endif
