@@ -6,7 +6,7 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
   return os;
 }
 
-Bureaucrat::Bureaucrat(const std::string& name, int n) : name(name), grade(n) {
+Bureaucrat::Bureaucrat(std::string name, int n) : name(name), grade(n) {
   std::cout << "Bureaucrat Default constructor called for " << name
             << " with grade " << n << std::endl;
 
@@ -23,16 +23,15 @@ Bureaucrat::Bureaucrat(const std::string& name, int n) : name(name), grade(n) {
   }
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const& f) {
-  std::cout << "Bureaucrat copy constructor called for " << f << std::endl;
-  setName(f.getName());
+Bureaucrat::Bureaucrat(Bureaucrat const& f) : name(f.getName()) {
+  std::cout << "Bureaucrat copy constructor called for " << f;
   grade = f.getGrade();
 }
 
 Bureaucrat& Bureaucrat::operator=(Bureaucrat const& f) {
   if (&f == this)
     return (*this);
-  std::cout << "Bureaucrat copy constructor called for " << f << std::endl;
+  std::cout << "Bureaucrat = assignment called for " << f << std::endl;
   setName(f.getName());
   grade = f.getGrade();
   return (*this);
@@ -42,14 +41,12 @@ Bureaucrat::~Bureaucrat() {
   std::cout << "Bureaucrat Destructor called for " << name << std::endl;
 };
 
-std::string Bureaucrat::getName(void) const {
+const std::string& Bureaucrat::getName(void) const {
   return (name);
 }
-
-void Bureaucrat::setName(std::string const newName) const {
-  name = newName;
+void Bureaucrat::setName(const std::string& newName) const {
+  const_cast<std::string&>(name) = newName;
 }
-
 int Bureaucrat::getGrade(void) const {
   return (grade);
 }
@@ -83,7 +80,3 @@ void Bureaucrat::increaseGrade() {
     std::cout << e.what() << std::endl;
   }
 }
-
-void signForm(){
-    // TO DO
-};

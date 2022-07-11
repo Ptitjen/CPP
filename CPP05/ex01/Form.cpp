@@ -1,8 +1,7 @@
 #include "Form.hpp"
 
 std::ostream& operator<<(std::ostream& os, const Form& b) {
-  os << b.getName() << ", bureaucrat grade " << b.getGrade() << "."
-     << std::endl;
+  os << b.getName() << std::endl;
   return os;
 }
 
@@ -50,7 +49,9 @@ void Form::setSignGrade(int grade) {
   signGrade = grade;
 };
 void Form::setExecGrade(int grade){};
-void Form::setName(std::string name){};
+void Form::setName(std::string name){
+
+};
 void Form::setSign(bool sign){};
 // std::string Bureaucrat::getName(void) const {
 //   return (name);
