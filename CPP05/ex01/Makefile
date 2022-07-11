@@ -6,17 +6,14 @@
 #    By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 16:13:33 by jeulliot          #+#    #+#              #
-#    Updated: 2022/07/11 14:23:40 by jeulliot         ###   ########.fr        #
+#    Updated: 2022/07/11 16:21:28 by jeulliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= Dog.cpp \
-			Cat.cpp \
-			Animal.cpp \
-			Brain.cpp \
-			main.cpp
+SRCS	= main.cpp \
+			Bureaucrat.cpp
 			
-NAME	= animals
+NAME	= bureaucrat
 
 RM	= @rm -f
 

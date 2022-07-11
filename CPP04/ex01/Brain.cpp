@@ -28,5 +28,7 @@ Brain::~Brain() {
 };
 
 std::string Brain::getIdea(int n) const {
+  if (n < 0 || n >= 100)
+    return ("Invalid index\n");
   return (ideas[n]);
 };
