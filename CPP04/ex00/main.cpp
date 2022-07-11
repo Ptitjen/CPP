@@ -33,6 +33,7 @@ int main() {
   std::cout << std::endl << "Testing Wrong animal class..." << std::endl;
   std::cout << l->getType() << " says:" << std::endl;
   l->makeSound();
+  std::cout << std::endl;
 
   delete (i);
   delete (j);
