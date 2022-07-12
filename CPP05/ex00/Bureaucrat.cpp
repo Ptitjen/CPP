@@ -6,22 +6,22 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
   return os;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int n) : name(name), grade(n) {
+Bureaucrat::Bureaucrat(std::string name, int n) {
   std::cout << "Bureaucrat Default constructor called for " << name
             << " with grade " << n << std::endl;
-
   try {
-    if (n > 150) {
-      throw std::invalid_argument("Bureaucrat::GradeTooLowException");
-    }
-    if (n <= 0) {
-      throw std::invalid_argument("Bureaucrat::GradeTooHighException");
-    }
-
-  } catch (std::exception& e) {
+    if (n > 150)
+      throw Bureaucrat::GradeTooLowException();
+    if (n <= 0)
+      throw Bureaucrat::GradeTooHighException();
+    const_cast<std::string&>(this->name) = name;
+    grade = n;
+  } catch (Bureaucrat::GradeTooLowException& e) {
+    std::cout << e.what() << std::endl;
+  } catch (Bureaucrat::GradeTooHighException& e) {
     std::cout << e.what() << std::endl;
   }
-}
+};
 
 Bureaucrat::Bureaucrat(Bureaucrat const& f) : name(f.getName()) {
   std::cout << "Bureaucrat copy constructor called for " << f;
