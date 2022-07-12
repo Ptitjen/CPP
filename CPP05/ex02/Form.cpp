@@ -1,5 +1,4 @@
 #include "Form.hpp"
-#include "Bureaucrat.hpp"
 
 std::ostream& operator<<(std::ostream& os, const Form& f) {
   os << "Form " << f.getName()

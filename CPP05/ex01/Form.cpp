@@ -1,5 +1,4 @@
 #include "Form.hpp"
-#include "Bureaucrat.hpp"
 
 std::ostream& operator<<(std::ostream& os, const Form& f) {
   os << "Form " << f.getName()
@@ -49,6 +48,14 @@ Form& Form::operator=(Form const& f) {
 Form::~Form() {
   std::cout << "Form Destructor called for " << name << std::endl;
 };
+
+const char* Form::GradeTooHighException::what() const throw() {
+  return ("Form::Exception: Grade too low.");
+}
+
+const char* Form::GradeTooLowException::what() const throw() {
+  return ("Form::Exception: Grade too low.");
+}
 
 bool Form::beSigned(Bureaucrat& b) {
   try {
