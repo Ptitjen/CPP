@@ -9,10 +9,11 @@ class Form;
 
 class Form {
  public:
+  Form();
   Form(std::string name, int signGrade, int execGrade);
   Form(Form const& f);
   Form& operator=(Form const& f);
-  ~Form();
+  virtual ~Form();
 
   class GradeTooLowException : public std::exception {
    public:
@@ -38,6 +39,10 @@ class Form {
   void setName(const std::string& name);
   void setSign(bool sign);
   bool beSigned(Bureaucrat& b);
+
+  bool execute(Bureaucrat const& executor) const;
+
+  virtual void action(void) const = 0;
 
  private:
   const std::string name;

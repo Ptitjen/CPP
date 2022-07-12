@@ -9,6 +9,7 @@ class Bureaucrat;
 
 class Bureaucrat {
  public:
+  Bureaucrat();
   Bureaucrat(std::string name, int n);
   Bureaucrat(Bureaucrat const& f);
   Bureaucrat& operator=(Bureaucrat const& f);
@@ -36,6 +37,8 @@ class Bureaucrat {
   void decreaseGrade();
 
   void signForm(Form& f);
+
+  void executeForm(Form const& form);
 
  private:
   const std::string name;

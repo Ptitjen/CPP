@@ -8,6 +8,10 @@ std::ostream& operator<<(std::ostream& os, const Form& f) {
   return os;
 }
 
+Form::Form() : signGrade(150), execGrade(150) {
+  setName("");
+}
+
 Form::Form(std::string name, int signGrade, int execGrade)
     : name(name), sign(false), signGrade(signGrade), execGrade(execGrade) {
   std::cout << "Form Default constructor called" << std::endl;

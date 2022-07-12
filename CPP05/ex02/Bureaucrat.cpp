@@ -5,7 +5,10 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
      << std::endl;
   return os;
 }
-
+Bureaucrat::Bureaucrat() {
+  setName("");
+  grade = 150;
+}
 Bureaucrat::Bureaucrat(std::string name, int n) {
   std::cout << "Bureaucrat Default constructor called for " << name
             << " with grade " << n << std::endl;
@@ -91,4 +94,15 @@ void Bureaucrat::signForm(Form& f) {
     std::cout << name << " couldn't sign " << f.getName()
               << " because his grade is too low." << std::endl;
   ;
+}
+
+void Bureaucrat::executeForm(Form const& form) {
+  if (form.execute(*this))
+    std::cout << name << " executed " << form.getName() << "." << std::endl;
+  else if (!form.getSigned())
+    std::cout << name << " couldn't execute " << form.getName()
+              << " because the form is not signed." << std::endl;
+  else
+    std::cout << name << " couldn't execute " << form.getName()
+              << " because his grade is too low." << std::endl;
 }

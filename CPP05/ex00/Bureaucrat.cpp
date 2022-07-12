@@ -6,6 +6,11 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
   return os;
 }
 
+Bureaucrat::Bureaucrat() {
+  setName("");
+  grade = 150;
+}
+
 Bureaucrat::Bureaucrat(std::string name, int n) {
   std::cout << "Bureaucrat Default constructor called for " << name
             << " with grade " << n << std::endl;

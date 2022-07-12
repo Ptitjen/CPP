@@ -6,13 +6,16 @@
 #    By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 16:13:33 by jeulliot          #+#    #+#              #
-#    Updated: 2022/07/12 10:49:37 by jeulliot         ###   ########.fr        #
+#    Updated: 2022/07/12 14:25:09 by jeulliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= main.cpp \
 			Bureaucrat.cpp \
-			Form.cpp
+			Form.cpp \
+			RobotomyRequestForm.cpp \
+			PresidentialPardonForm.cpp \
+			ShrubberyCreationForm.cpp
 			
 NAME	= bureaucrat_and_forms
 

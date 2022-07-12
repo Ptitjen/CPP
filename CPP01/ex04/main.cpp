@@ -11,7 +11,6 @@ std::string FtReplace(std::string buffer, std::string s1,
 
   while (i < buffer.length()) {
     j = 0;
-    // if (buffer[i] == s1[0]) {
     while (j < s1.length()) {
       if (buffer[i + j] == s1[j])
         j++;
@@ -21,12 +20,7 @@ std::string FtReplace(std::string buffer, std::string s1,
     if (j == s1.length()) {
       cpy.append(s2);
       i += s1.length();
-    }  // else {
-       // cpy.append(1, buffer[i]);
-       // i++;
-    //}
-    //}
-    else {
+    } else {
       cpy.append(1, buffer[i]);
       i++;
     }

@@ -1,11 +1,17 @@
-#include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 std::ostream& operator<<(std::ostream& os, const Form& f) {
   os << "Form " << f.getName()
-     << ": status: " << (f.getSigned() ? "signed" : " not signed")
-     << ": signGrade: " << f.getSignGrade()
-     << ": execGrade: " << f.getExecGrade() << std::endl;
+     << " / status: " << (f.getSigned() ? "signed" : "not signed")
+     << " / signGrade: " << f.getSignGrade()
+     << " / execGrade: " << f.getExecGrade() << std::endl;
   return os;
+}
+
+Form::Form() : signGrade(150), execGrade(150) {
+  setName("");
 }
 
 Form::Form(std::string name, int signGrade, int execGrade)
@@ -95,3 +101,19 @@ void Form::setName(const std::string& newName) {
 void Form::setSign(bool newSign) {
   sign = newSign;
 };
+
+bool Form::execute(Bureaucrat const& executor) const {
+  try {
+    if (executor.getGrade() > execGrade) {
+      throw(Form::GradeTooLowException());
+    }
+    if (!this->sign)
+      return false;
+    this->action();
+    return true;
+
+  } catch (Form::GradeTooLowException& e) {
+    std::cout << e.what() << std::endl;
+    return false;
+  }
+}

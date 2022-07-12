@@ -9,10 +9,11 @@ class Form;
 
 class Form {
  public:
+  Form();
   Form(std::string name, int signGrade, int execGrade);
   Form(Form const& f);
   Form& operator=(Form const& f);
-  ~Form();
+  virtual ~Form();
 
   class GradeTooLowException : public std::exception {
    public:
