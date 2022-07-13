@@ -1,12 +1,55 @@
 #include "Intern.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
-// Le stagiaire n’a pas de nom, pas d’échelon, aucun signe distinctif. La seule
-// chose dont se préoccupent les bureaucrates, c’est qu’un stagiaire fasse son
-// travail. Cependant, le stagiaire a une aptitude importante : la fonction
-// makeForm() qui prend deux strings en paramètres. La première est le nom du
-// formulaire, la seconde la cible du formulaire. Elle retourne un pointeur sur
-// un objet Form dont le nom est passé en paramètre et dont la cible est le
-// second paramètre. Elle affiche quelque chose comme :
-//    Intern creates <form>
-// Si le nom du formulaire passé en paramètre n’existe pas, affichez un message
-// d’erreur explicite
+Intern::Intern() {
+  std::cout << "Intern constructor called" << std::endl;
+}
+
+Intern::Intern(Intern const& f) {
+  std::cout << "Intern copy constructor called" << std::endl;
+  (void)f;
+}
+
+Intern& Intern::operator=(Intern const& f) {
+  std::cout << "Intern assignment operator called" << std::endl;
+  if (&f == this)
+    return (*this);
+
+  return (*this);
+};
+
+Intern::~Intern() {
+  std::cout << "Intern Destructor called " << std::endl;
+};
+
+Form* Intern::makeForm(std::string formName, std::string target) {
+  std::string nameArray[3] = {"schrubbery creation", "robotomy request",
+                              "presidential pardon form"};
+  int index = -1;
+  for (int i = 0; i < 3; i++)
+    if (formName == nameArray[i])
+      index = i;
+  index == -1
+      ? (std::cout << "This form does not exist." << std::endl)
+      : std::cout << "Intern creates " << formName << " form." << std::endl;
+  switch (index) {
+    case 0: {
+      ShrubberyCreationForm* f =
+          new ShrubberyCreationForm(target, "Shrub Form");
+      return f;
+    }
+    case 1: {
+      RobotomyRequestForm* f = new RobotomyRequestForm(target, "Robot Form");
+      return f;
+    }
+    case 2: {
+      PresidentialPardonForm* f =
+          new PresidentialPardonForm(target, "Robot Form");
+      return f;
+    }
+    default:
+      return NULL;
+  }
+};

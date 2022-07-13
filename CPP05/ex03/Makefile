@@ -6,7 +6,7 @@
 #    By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 16:13:33 by jeulliot          #+#    #+#              #
-#    Updated: 2022/07/12 14:25:09 by jeulliot         ###   ########.fr        #
+#    Updated: 2022/07/13 13:24:27 by jeulliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,10 @@ SRCS	= main.cpp \
 			Form.cpp \
 			RobotomyRequestForm.cpp \
 			PresidentialPardonForm.cpp \
-			ShrubberyCreationForm.cpp
+			ShrubberyCreationForm.cpp \
+			Intern.cpp
 			
-NAME	= bureaucrat_and_forms
+NAME	= interns
 
 RM	= @rm -f
 
