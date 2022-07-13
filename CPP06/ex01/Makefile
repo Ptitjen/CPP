@@ -6,14 +6,14 @@
 #    By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 16:13:33 by jeulliot          #+#    #+#              #
-#    Updated: 2022/07/13 18:42:58 by jeulliot         ###   ########.fr        #
+#    Updated: 2022/07/13 17:58:48 by jeulliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= main.cpp
 			
 			
-NAME	= static_cast
+NAME	= reinterpret_cast
 
 RM	= @rm -f
 

@@ -5,6 +5,7 @@
 
 int main() {
   {
+    srand(time(NULL));
     Intern someRandomIntern;
 
     Form* rrf2;
@@ -17,6 +18,10 @@ int main() {
     Form* rrf3;
     rrf3 = someRandomIntern.makeForm("presidential pardon form", "Bender");
     std::cout << *rrf3 << std::endl;
+
+    delete rrf;
+    delete rrf2;
+    delete rrf3;
   }
 
   return 0;

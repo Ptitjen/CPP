@@ -6,6 +6,7 @@
 #include "ShrubberyCreationForm.hpp"
 
 int main() {
+  srand(time(NULL));
   std::cout << std::endl << " ----- Creating Bureaucrats -----" << std::endl;
   Bureaucrat b1("Middle one", 30);
   std::cout << b1 << std::endl;
