@@ -1,3 +1,5 @@
+#include <cmath>
+#include <cstdlib>
 #include <iostream>
 #include <limits>
 #include <string>
@@ -14,6 +16,7 @@ bool isPrintable(char c) {
     return false;
   return true;
 }
+
 bool isSpecial(std::string str) {
   if (str == "-inff" || str == "+inff" || str == "nanf" || str == "-inf" ||
       str == "+inf" || str == "nan")
@@ -22,25 +25,15 @@ bool isSpecial(std::string str) {
 }
 
 bool isDouble(std::string str) {
-  std::string::size_type i = 0;
-  bool point = false;
-  while (i < str.length()) {
-    if (str[i] == '.') {
-      if (!point)
-        point = true;
-      else
-        return false;
-    } else if (isdigit(str[i]) == 0)
-      return false;
-    i++;
-  }
-  if (!point)
+  char* pEnd;
+  double result;
+  result = strtod(str.c_str(), &pEnd);
+  if (str[str.length() - 1] == 'f')
     return false;
-  // to do : overflow
-  //   std::cout << std::numeric_limits<double>::max() << std::endl;
-  //   std::cout << std::numeric_limits<double>::min() << std::endl;
-
-  std::cout << "It's a double" << std::endl;
+  if (result == HUGE_VAL) {
+    std::cout << "Double overflow" << std::endl;
+    return false;
+  }
   return true;
 }
 
@@ -68,20 +61,21 @@ bool isInt(std::string str) {
 bool isChar(std::string str) {
   if (isdigit(str[0]) == 1 || str.length() != 1)
     return false;
-  std::cout << "It's a char" << std::endl;
   return true;
 }
 
-// voir si 2114678954f = float
 bool isFloat(std::string str) {
   if ((isDouble(str.substr(0, str.length() - 1)) &&
        str[str.length() - 1] == 'f')) {
-    std::cout << "It's a float" << std::endl;
-    if (atof(str.c_str()) > std::numeric_limits<float>::max()) {
+    char* pEnd;
+
+    if (std::strtod(str.substr(0, str.length() - 2).c_str(), &pEnd) >
+        std::numeric_limits<float>::max()) {
       std::cout << "Float max overflow" << std::endl;
       return false;
     };
-    if (atof(str.c_str()) < std::numeric_limits<float>::min()) {
+    if (std::strtod(str.substr(0, str.length() - 2).c_str(), &pEnd) <
+        -std::numeric_limits<float>::max()) {
       std::cout << "Float min overflow" << std::endl;
       return false;
     };
@@ -92,9 +86,13 @@ bool isFloat(std::string str) {
 
 void convertInt(int i) {
   std::cout << "char: ";
-  isPrintable(static_cast<char>(i))
-      ? (std::cout << static_cast<char>(i) << std::endl)
-      : (std::cout << "Not displayable" << std::endl);
+  if (i > std::numeric_limits<char>::max() ||
+      i < std::numeric_limits<char>::min())
+    std::cout << "Overflow" << std::endl;
+  else if (!isPrintable(static_cast<char>(i)))
+    (std::cout << "Not displayable" << std::endl);
+  else
+    std::cout << static_cast<char>(i) << std::endl;
 
   std::cout << "int: ";
   std::cout << static_cast<int>(i) << std::endl;
@@ -122,12 +120,15 @@ void convertChar(char str) {
 
 void convertFloat(double f) {
   std::cout << "char: ";
-
   double intpart;
   double fractpart = modf(f, &intpart);
-  (isPrintable(static_cast<char>(f)) && fractpart == 0)
-      ? (std::cout << static_cast<char>(f) << std::endl)
-      : (std::cout << "Not displayable" << std::endl);
+  if (f > std::numeric_limits<char>::max() ||
+      f < std::numeric_limits<char>::min())
+    std::cout << "Overflow" << std::endl;
+  else if (!isPrintable(static_cast<char>(f)) || fractpart != 0)
+    (std::cout << "Not displayable" << std::endl);
+  else
+    std::cout << static_cast<char>(f) << std::endl;
 
   std::cout << "int: ";
   if (f >= 2147483647 || f <= -2147483648)
@@ -147,10 +148,13 @@ void convertDouble(double d) {
 
   double intpart;
   double fractpart = modf(d, &intpart);
-
-  (isPrintable(static_cast<char>(d)) && fractpart == 0)
-      ? (std::cout << static_cast<char>(d) << std::endl)
-      : (std::cout << "Not displayable" << std::endl);
+  if (d > std::numeric_limits<char>::max() ||
+      d < std::numeric_limits<char>::min())
+    std::cout << "Overflow" << std::endl;
+  else if (!isPrintable(static_cast<char>(d)) || fractpart != 0)
+    (std::cout << "Not displayable" << std::endl);
+  else
+    std::cout << static_cast<char>(d) << std::endl;
 
   std::cout << "int: ";
   if (d >= 2147483647 || d <= -2147483648)
@@ -160,7 +164,7 @@ void convertDouble(double d) {
 
   std::cout << "float: ";
   if (d >= std::numeric_limits<float>::max() ||
-      d <= std::numeric_limits<float>::min())
+      d <= -std::numeric_limits<float>::max())
     std::cout << "Overflow" << std::endl;
   else
     std::cout << std::fixed << static_cast<float>(d) << "f" << std::endl;
@@ -191,12 +195,12 @@ void convertSpecial(std::string str) {
 }
 
 int getArgType(std::string str) {
+  if (isInt(str))
+    return (INT);
   if (isFloat(str))
     return (FLOAT);
   if (isDouble(str))
     return (DOUBLE);
-  if (isInt(str))
-    return (INT);
   if (isChar(str))
     return (CHAR);
   if (isSpecial(str))
