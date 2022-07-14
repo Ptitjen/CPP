@@ -1,3 +1,6 @@
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
+
 #include <exception>
 
 #include <iostream>
@@ -52,3 +55,5 @@ class Array {
   };
   unsigned int len;
 };
+
+#endif
