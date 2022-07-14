@@ -7,12 +7,14 @@ Span::Span(unsigned int N) : maxLength(N){};
 
 Span::Span(Span const& s) {
   maxLength = s.maxLength;
+  array.clear();
   array = s.array;
 };
 
 Span& Span::operator=(Span const& s) {
   if (&s == this)
     return (*this);
+  array.clear();
   array = s.array;
   maxLength = s.maxLength;
   return (*this);
