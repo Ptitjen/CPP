@@ -25,9 +25,9 @@ class Array {
   Array<T>& operator=(Array<T> const& f) {
     if (&f == this)
       return (*this);
-    delete array;  // verifier
-    array = new T[this->size()];
-    for (unsigned int i = 0; i < this->size(); i++)
+    delete[] array;  // verifier
+    array = new T[f.size()];
+    for (unsigned int i = 0; i < f.len; i++)
       array[i] = T(f[i]);
     this->len = f.len;
     return (*this);
@@ -35,17 +35,17 @@ class Array {
 
   T const& operator[](int const index) const {
     if (index >= static_cast<int>(len) || index < 0)
-      throw std::out_of_range("Bli");
+      throw std::out_of_range("Out of range");
     return array[index];
   };
 
   T& operator[](int index) {
     if (index >= static_cast<int>(len) || index < 0)
-      throw std::out_of_range("Bli");
+      throw std::out_of_range("Out of range");
     return array[index];
   };
 
-  ~Array<T>() { delete (array); };
+  ~Array<T>() { delete[](array); };
 
   unsigned int size(void) { return (len); };
 

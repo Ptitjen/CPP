@@ -6,12 +6,11 @@
 #    By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 16:13:33 by jeulliot          #+#    #+#              #
-#    Updated: 2022/07/14 13:31:04 by jeulliot         ###   ########.fr        #
+#    Updated: 2022/07/14 17:47:27 by jeulliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= main.cpp \
-			array.cpp
+SRCS	= main.cpp 
 			
 			
 NAME	= templates

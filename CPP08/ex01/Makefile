@@ -6,14 +6,14 @@
 #    By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 16:13:33 by jeulliot          #+#    #+#              #
-#    Updated: 2022/07/14 12:45:36 by jeulliot         ###   ########.fr        #
+#    Updated: 2022/07/14 18:49:04 by jeulliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= main.cpp
+SRCS	= main.cpp Span.cpp
 			
 			
-NAME	= templates
+NAME	= span
 
 RM	= @rm -f
 
