@@ -6,6 +6,7 @@
 int main() {
   {
     srand(time(NULL));
+    
     Intern someRandomIntern;
 
     Form* rrf2;
