@@ -21,6 +21,8 @@ class Span {
   void addNumber(int n);
   unsigned int shortestSpan();
   unsigned int longestSpan();
+
+  void multipleAddNumbers(Span toAdd);
 };
 
 #endif

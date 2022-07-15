@@ -1,5 +1,7 @@
 #include "Span.hpp"
+#include <exception>
 #include <map>
+#include <stdexcept>
 
 Span::Span() : maxLength(0){};
 
@@ -22,13 +24,19 @@ Span& Span::operator=(Span const& s) {
 
 int const& Span::operator[](int const index) const {
   if (index >= static_cast<int>(maxLength) || index < 0)
-    throw std::out_of_range("Out of range");
+    throw std::out_of_range("Error: index out of range");
+  if (index >= static_cast<int>(array.size())) {
+    throw std::out_of_range("Error: no value at this index");
+  }
   return array.at(index);
 };
 
 int& Span::operator[](int index) {
   if (index >= static_cast<int>(maxLength) || index < 0)
-    throw std::out_of_range("Out of range");
+    throw std::out_of_range("Error: index out of range");
+  if (index >= static_cast<int>(array.size())) {
+    throw std::out_of_range("Error: no value at this index");
+  }
   return array.at(index);
 };
 
@@ -41,11 +49,24 @@ void Span::addNumber(int n) {
     throw std::out_of_range("Error: AddNumber: Max size reached");
 };
 
+void Span::multipleAddNumbers(Span toAdd) {
+  if (toAdd.array.size() <= this->maxLength - this->array.size()) {
+    std::vector<int>::iterator it;
+    it = this->array.begin();
+    it = this->array.insert(it, toAdd.array.begin(), toAdd.array.end());
+  } else {
+    throw std::length_error(
+        "Error: Not enough space in array to add this range of numbers");
+  }
+}
+
 unsigned int Span::shortestSpan() {
   unsigned int diff = longestSpan();
   if (array.empty()) {
-    std::cout << "Error: ShortestSpan: Array is empty." << std::endl;
-    return 0;
+    throw std::length_error("Error: Span: Array is empty.");
+  }
+  if (array.size() == 1) {
+    throw std::length_error("Error: Span: Only one value in array.");
   }
   unsigned int tmp = 0;
   for (unsigned int i = 0; i < array.size() - 1; i++) {
@@ -63,8 +84,10 @@ unsigned int Span::shortestSpan() {
 
 unsigned int Span::longestSpan() {
   if (array.empty()) {
-    std::cout << "Error: LongestSpan: Array is empty." << std::endl;
-    return 0;
+    throw std::length_error("Error: Span: Array is empty.");
+  }
+  if (array.size() == 1) {
+    throw std::length_error("Error: Span: Only one value in array.");
   }
   return (*std::max_element(array.begin(), array.end()) -
           *std::min_element(array.begin(), array.end()));
