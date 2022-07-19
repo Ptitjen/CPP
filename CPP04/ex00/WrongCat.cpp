@@ -20,3 +20,7 @@ WrongCat& WrongCat::operator=(WrongCat const& f) {
 WrongCat::~WrongCat() {
   std::cout << "WrongCat Destructor called \U0001F431" << std::endl;
 };
+
+void WrongCat::makeSound(void) const {
+  std::cout << "* Wrong Meeeeeeeeeoooooooooooooow *" << std::endl;
+}

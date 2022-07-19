@@ -5,10 +5,11 @@
 
 class Dog : public Animal {
  public:
-  Dog();                         // Constructeur par défaut
-  Dog(Dog const& f);             // Constructeur de recopie
-  Dog& operator=(Dog const& f);  // Operator d'affectation
-  virtual ~Dog();                // Destructeur
+  Dog();
+  Dog(Dog const& f);
+  Dog& operator=(Dog const& f);
+  virtual ~Dog();
+
   virtual void makeSound() const;
 };
 

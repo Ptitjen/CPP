@@ -5,10 +5,12 @@
 
 class WrongCat : public WrongAnimal {
  public:
-  WrongCat();                              // Constructeur par défaut
-  WrongCat(WrongCat const& f);             // Constructeur de recopie
-  WrongCat& operator=(WrongCat const& f);  // Operator d'affectation
-  virtual ~WrongCat();                     // Destructeur
+  WrongCat();
+  WrongCat(WrongCat const& f);
+  WrongCat& operator=(WrongCat const& f);
+  virtual ~WrongCat();
+
+  void makeSound() const;
 };
 
 #endif

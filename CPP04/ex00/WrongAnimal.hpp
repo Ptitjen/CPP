@@ -5,10 +5,10 @@
 
 class WrongAnimal {
  public:
-  WrongAnimal();                                 // Constructeur par défaut
-  WrongAnimal(WrongAnimal const& f);             // Constructeur de recopie
-  WrongAnimal& operator=(WrongAnimal const& f);  // Operator d'affectation
-  virtual ~WrongAnimal();                        // Destructeur
+  WrongAnimal();
+  WrongAnimal(WrongAnimal const& f);
+  WrongAnimal& operator=(WrongAnimal const& f);
+  virtual ~WrongAnimal();
 
   static void makeSound();
   std::string getType() const;

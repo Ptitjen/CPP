@@ -5,10 +5,10 @@
 
 class Animal {
  public:
-  Animal();                            // Constructeur par défaut
-  Animal(Animal const& f);             // Constructeur de recopie
-  Animal& operator=(Animal const& f);  // Operator d'affectation
-  virtual ~Animal();                   // Destructeur
+  Animal();
+  Animal(Animal const& f);
+  Animal& operator=(Animal const& f);
+  virtual ~Animal();
 
   std::string getType() const;
   virtual void makeSound() const = 0;
