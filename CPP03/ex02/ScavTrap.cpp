@@ -1,17 +1,24 @@
 #include "ScavTrap.hpp"
 
-#include <iostream>
-
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
+ScavTrap::ScavTrap() {
   std::cout << "ScavTrap contructor called \U0001F608." << std::endl;
-  this->_name = name;
-  this->_attackDamage = 25;
+  this->_name = "noname";
+  this->_attackDamage = 20;
   this->_energyPoints = 50;
   this->_hitPoints = 100;
   displayStatus();
 }
 
-ScavTrap::ScavTrap(ScavTrap const& f) : ClapTrap(f._name) {
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
+  std::cout << "ScavTrap contructor called \U0001F608." << std::endl;
+  this->_name = name;
+  this->_attackDamage = 20;
+  this->_energyPoints = 50;
+  this->_hitPoints = 100;
+  displayStatus();
+}
+
+ScavTrap::ScavTrap(ScavTrap const &f) : ClapTrap(f._name) {
   this->_name = f._name;
   this->_hitPoints = f._hitPoints;
   this->_energyPoints = f._energyPoints;
@@ -20,7 +27,7 @@ ScavTrap::ScavTrap(ScavTrap const& f) : ClapTrap(f._name) {
   displayStatus();
 };
 
-ScavTrap& ScavTrap::operator=(ScavTrap const& f) {
+ScavTrap &ScavTrap::operator=(ScavTrap const &f) {
   this->_name = f._name;
   this->_hitPoints = f._hitPoints;
   this->_energyPoints = f._energyPoints;
@@ -40,7 +47,7 @@ void ScavTrap::guardGate() {
             << std::endl;
 }
 
-void ScavTrap::attack(const std::string& target) {
+void ScavTrap::attack(const std::string &target) {
   if (this->_energyPoints != 0 && this->_hitPoints != 0) {
     this->_energyPoints--;
     std::cout << "ScavTrap " << _name << " brutally attacks " << target

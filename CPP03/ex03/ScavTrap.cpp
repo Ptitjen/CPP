@@ -2,15 +2,24 @@
 
 #include <iostream>
 
+ScavTrap::ScavTrap() {
+  std::cout << "ScavTrap contructor called \U0001F608." << std::endl;
+  this->_name = "noname";
+  this->_attackDamage = 20;
+  this->_energyPoints = 50;
+  this->_hitPoints = 100;
+  displayStatus();
+}
+
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name.append("_clap_name")) {
   std::cout << "ScavTrap contructor called \U0001F608." << std::endl;
   this->_name = name;
-  this->_attackDamage = 25;
+  this->_attackDamage = 20;
   this->_energyPoints = 50;
   this->_hitPoints = 100;
 }
 
-ScavTrap::ScavTrap(ScavTrap const& f) : ClapTrap(f._name) {
+ScavTrap::ScavTrap(ScavTrap const &f) : ClapTrap(f._name) {
   this->_name = f._name;
   this->_hitPoints = f._hitPoints;
   this->_energyPoints = f._energyPoints;
@@ -18,7 +27,7 @@ ScavTrap::ScavTrap(ScavTrap const& f) : ClapTrap(f._name) {
   std::cout << "ScavTrap copy contructor called \U0001F608." << std::endl;
 };
 
-ScavTrap& ScavTrap::operator=(ScavTrap const& f) {
+ScavTrap &ScavTrap::operator=(ScavTrap const &f) {
   this->_name = f._name;
   this->_hitPoints = f._hitPoints;
   this->_energyPoints = f._energyPoints;
@@ -37,7 +46,7 @@ void ScavTrap::guardGate() {
             << std::endl;
 }
 
-void ScavTrap::attack(const std::string& target) {
+void ScavTrap::attack(const std::string &target) {
   if (this->_energyPoints != 0 && this->_hitPoints != 0) {
     this->_energyPoints--;
     std::cout << _name << " brutally attacks " << target
@@ -56,9 +65,7 @@ void ScavTrap::attack(const std::string& target) {
 unsigned int ScavTrap::getDefaultEnergyPoints(void) {
   return (defaultEnergyPoints);
 };
-unsigned int ScavTrap::getDefaultHitPoints(void) {
-  return (defaultHitPoints);
-};
+unsigned int ScavTrap::getDefaultHitPoints(void) { return (defaultHitPoints); };
 unsigned int ScavTrap::getDefaultAttackDamage(void) {
   return (defaultAttackDamage);
 };

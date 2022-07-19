@@ -3,20 +3,21 @@
 #include "ClapTrap.hpp"
 
 int main(void) {
-  ClapTrap bloobie("Bloobie");
-
-  bloobie.attack("Zombicorn");
-  bloobie.takeDamage(1);
-  bloobie.beRepaired(2);
-  bloobie.attack("The Great Mighty Unicorn");
-  bloobie.beRepaired(1);
-  bloobie.attack("SeaGullicorn");
-  bloobie.attack("The Great Mighty Zombicorn");
-  bloobie.attack("The Great SeaGull");
-  bloobie.beRepaired(1);
-  bloobie.attack("The Great Mighty Unicorn");
-  bloobie.beRepaired(1);
-  bloobie.attack("Zombicorn");
-  bloobie.beRepaired(1);
+  std::string sep =
+      "-------------------------------------------------------------------";
+  ClapTrap zombicorn("Zombicorn");
+  std::cout << sep << std::endl;
+  zombicorn.attack("Unicorn");
+  std::cout << sep << std::endl;
+  zombicorn.takeDamage(2);
+  std::cout << sep << std::endl;
+  zombicorn.beRepaired(2);
+  std::cout << sep << std::endl;
+  zombicorn.takeDamage(10);
+  std::cout << sep << std::endl;
+  zombicorn.attack("Unicorn");
+  std::cout << sep << std::endl;
+  zombicorn.beRepaired(1);
+  std::cout << sep << std::endl;
   return 0;
 }

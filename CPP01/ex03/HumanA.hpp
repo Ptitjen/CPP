@@ -1,5 +1,5 @@
-#ifndef HUMANA_H
-#define HUMANA_H
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
 #include <iostream>
 
@@ -8,7 +8,6 @@
 class HumanA {
  public:
   HumanA(std::string const& name, Weapon& initial_w);
-
   ~HumanA(void);
 
   void attack(void);

@@ -1,7 +1,5 @@
 #include "Span.hpp"
-#include <exception>
-#include <map>
-#include <stdexcept>
+#include <algorithm>
 
 Span::Span() : maxLength(0){};
 
@@ -61,25 +59,16 @@ void Span::multipleAddNumbers(Span toAdd) {
 }
 
 unsigned int Span::shortestSpan() {
-  unsigned int diff = longestSpan();
   if (array.empty()) {
     throw std::length_error("Error: Span: Array is empty.");
   }
   if (array.size() == 1) {
     throw std::length_error("Error: Span: Only one value in array.");
   }
-  unsigned int tmp = 0;
-  for (unsigned int i = 0; i < array.size() - 1; i++) {
-    for (unsigned int j = i + 1; j < array.size(); j++) {
-      if (array.at(i) == array.at(j))
-        return (0);
-      array.at(i) > array.at(j) ? tmp = array.at(i) - array.at(j)
-                                : tmp = array.at(j) - array.at(i);
-      if (tmp < diff)
-        diff = tmp;
-    }
-  }
-  return (diff);
+  std::sort(array.begin(), array.end());
+  std::vector<int> result(array.size());
+  std::adjacent_difference(array.begin(), array.end(), result.begin());
+  return (*std::min_element(result.begin(), result.end()));
 };
 
 unsigned int Span::longestSpan() {

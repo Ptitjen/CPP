@@ -1,12 +1,15 @@
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
+#include <iostream>
 #include <string>
+
 class ClapTrap {
  public:
-  ClapTrap(std::string name);              // Constructeur par défaut
-  ClapTrap(ClapTrap const& f);             // Constructeur de recopie
-  ClapTrap& operator=(ClapTrap const& f);  // Operator d'affectation
-  ~ClapTrap();                             // Destructeur
+  ClapTrap();
+  ClapTrap(std::string name);
+  ClapTrap(ClapTrap const& f);
+  ClapTrap& operator=(ClapTrap const& f);
+  ~ClapTrap();
 
   void attack(const std::string& target);
   void takeDamage(unsigned int amount);

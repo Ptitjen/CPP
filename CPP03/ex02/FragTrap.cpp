@@ -1,6 +1,13 @@
 #include "FragTrap.hpp"
 
-#include <iostream>
+FragTrap::FragTrap() {
+  std::cout << "FragTrap contructor called \U0001F9DF." << std::endl;
+  this->_name = "noname";
+  this->_attackDamage = 30;
+  this->_energyPoints = 100;
+  this->_hitPoints = 100;
+  displayStatus();
+}
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
   std::cout << "FragTrap contructor called \U0001F9DF." << std::endl;

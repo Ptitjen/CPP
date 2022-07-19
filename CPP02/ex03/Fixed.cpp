@@ -19,7 +19,6 @@ Fixed& Fixed::operator=(Fixed const& f) {
   return (*this);
 };
 
-// comparison operators
 bool Fixed::operator>(Fixed const& f) const {
   return ((this->getRawBits() > f.getRawBits()));
 };
@@ -44,7 +43,6 @@ bool Fixed::operator!=(Fixed const& f) const {
   return ((this->getRawBits() != f.getRawBits()));
 };
 
-// arithmetic operators
 Fixed Fixed::operator+(Fixed const& f) const {
   Fixed n = Fixed(toFloat() + f.toFloat());
   return (n);
@@ -63,7 +61,6 @@ Fixed Fixed::operator/(Fixed const& f) const {
   return (n);
 };
 
-// incrementation operators
 Fixed Fixed::operator++(int) {
   Fixed n = *this;
   setRawBits(getRawBits() + 1);
@@ -83,7 +80,6 @@ Fixed Fixed::operator--() {
   return (*this);
 };
 
-// min max
 Fixed Fixed::min(Fixed& f1, Fixed& f2) {
   return (f1.getRawBits() < f2.getRawBits() ? f1 : f2);
 };

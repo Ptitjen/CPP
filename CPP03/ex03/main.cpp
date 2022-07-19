@@ -6,40 +6,25 @@
 #include "ScavTrap.hpp"
 
 int main(void) {
-  // {
-  //   std::cout << std::endl << "... CREATING A CLAPTRAP ..." << std::endl;
-  //   ClapTrap bloobie("Bloobie");
-  //   bloobie.attack("Zombicorn");
-  //   bloobie.takeDamage(1);
-  //   bloobie.beRepaired(2);
-  // }
-  // {
-  //   std::cout << std::endl << "... CREATING A SCAVTRAP ..." << std::endl;
-  //   ScavTrap bigbloobie("Big Bloobie");
-  //   bigbloobie.guardGate();
-  //   bigbloobie.attack("Zombicorn");
-  //   bigbloobie.takeDamage(1);
-  //   bigbloobie.beRepaired(2);
-  // }
-
-  // {
-  //   std::cout << std::endl << "... CREATING A FRAGTRAP ..." << std::endl;
-  //   FragTrap bigbigbloobie("Big Big Bloobie");
-  //   bigbigbloobie.highFivesGuys();
-  //   bigbigbloobie.attack("Zombicorn");
-  //   bigbigbloobie.takeDamage(50);
-  //   bigbigbloobie.beRepaired(2);
-  // }
-
   {
+    std::string sep =
+        "-------------------------------------------------------------------";
     std::cout << std::endl << "... CREATING A DIAMONDTRAP ..." << std::endl;
-    DiamondTrap gmbloobie("The Great Mighty Bloobie");
-    gmbloobie.whoAmI();
-    gmbloobie.highFivesGuys();
-    gmbloobie.guardGate();
-    gmbloobie.attack("Zombicorn");
-    gmbloobie.takeDamage(50);
-    gmbloobie.beRepaired(2);
+    std::cout << sep << std::endl;
+    DiamondTrap gmzombicorn("Glittery Zombicorn");
+    std::cout << sep << std::endl;
+    gmzombicorn.whoAmI();
+    std::cout << sep << std::endl;
+    gmzombicorn.highFivesGuys();
+    std::cout << sep << std::endl;
+    gmzombicorn.guardGate();
+    std::cout << sep << std::endl;
+    gmzombicorn.attack("Unicorn");
+    std::cout << sep << std::endl;
+    gmzombicorn.takeDamage(50);
+    std::cout << sep << std::endl;
+    gmzombicorn.beRepaired(2);
+    std::cout << sep << std::endl;
   }
 
   return 0;

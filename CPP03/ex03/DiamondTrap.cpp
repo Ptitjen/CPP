@@ -1,14 +1,23 @@
 #include "DiamondTrap.hpp"
 
-#include <iostream>
 #include <string>
+#include "ScavTrap.hpp"
+
+DiamondTrap::DiamondTrap()
+    : ClapTrap("noname_clap_name"), ScavTrap("noname"), FragTrap("noname") {
+  std::cout << "DiamondTrap default contructor called \U0001F4A0." << std::endl;
+  DiamondTrap::_name = "noname";
+  DiamondTrap::_attackDamage = FragTrap::getDefaultAttackDamage();
+  DiamondTrap::_energyPoints = ScavTrap::getDefaultEnergyPoints();
+  DiamondTrap::_hitPoints = FragTrap::getDefaultHitPoints();
+  displayStatus();
+}
 
 DiamondTrap::DiamondTrap(std::string name)
-    : ClapTrap(name.append("_clap_name")), ScavTrap(name), FragTrap(name) {
+    : ClapTrap(name), ScavTrap(name), FragTrap(name) {
   std::cout << "DiamondTrap contructor called \U0001F4A0." << std::endl;
-  std::size_t pos = name.find("_clap_name");
-  std::string str = name.substr(0, pos);
-  DiamondTrap::_name = str;
+  ClapTrap::_name += "_clap_name";
+  DiamondTrap::_name = name;
   DiamondTrap::_attackDamage = FragTrap::getDefaultAttackDamage();
   DiamondTrap::_energyPoints = ScavTrap::getDefaultEnergyPoints();
   DiamondTrap::_hitPoints = FragTrap::getDefaultHitPoints();
@@ -45,6 +54,9 @@ void DiamondTrap::attack(const std::string& target) {
 };
 
 void DiamondTrap::whoAmI(void) {
-  std::cout << "Am I DiamondTrap " << DiamondTrap::_name << " or ClapTrap "
-            << ClapTrap::_name << "???" << std::endl;
+  std::cout << "WHO AM I ???" << std::endl;
+  std::cout << "Am I" << std::endl
+            << "DiamondTrap " << DiamondTrap::_name << "?" << std::endl
+            << "or Am I" << std::endl
+            << "ClapTrap " << ClapTrap::_name << "???" << std::endl;
 }

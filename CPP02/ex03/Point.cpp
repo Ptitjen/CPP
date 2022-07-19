@@ -89,7 +89,6 @@ bool bsp(Point const a, Point const b, Point const c, Point const point) {
   if (onBorder(a, b, c, point))
     return false;
 
-  // check point dans triangle
   float pa = getDistance(a, point);
   float pb = getDistance(b, point);
   float pc = getDistance(c, point);

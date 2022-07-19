@@ -5,10 +5,11 @@
 
 class FragTrap : public virtual ClapTrap {
  public:
-  FragTrap(std::string name);              // Constructeur par défaut
-  FragTrap(FragTrap const& f);             // Constructeur de recopie
-  FragTrap& operator=(FragTrap const& f);  // Operator d'affectation
-  ~FragTrap();                             // Destructeur
+  FragTrap();
+  FragTrap(std::string name);
+  FragTrap(FragTrap const& f);
+  FragTrap& operator=(FragTrap const& f);
+  ~FragTrap();
 
   void highFivesGuys(void);
   void attack(const std::string& target);

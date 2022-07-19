@@ -6,14 +6,14 @@
 #    By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 16:13:33 by jeulliot          #+#    #+#              #
-#    Updated: 2022/07/07 16:18:21 by jeulliot         ###   ########.fr        #
+#    Updated: 2022/07/18 12:15:46 by jeulliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= ClapTrap.cpp \
 			main.cpp
 			
-NAME	= lonely_claptrap
+NAME	= claptrap
 
 RM	= @rm -f
 

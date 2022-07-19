@@ -1,10 +1,3 @@
-#include <algorithm>
-#include <exception>
-#include <iostream>
-#include <list>
-#include <map>
-#include <string>
-#include <vector>
 #include "Span.hpp"
 
 Span generateRandomNumbers(unsigned int n) {
@@ -60,13 +53,27 @@ int main() {
     //    std::cout << sp.longestSpan() << std::endl;
     //  }
 
-    // 5.multiple add numbers
-    // {
-    //   Span s(20000);
-    //   s.multipleAddNumbers(generateRandomNumbers(20000));
-    //   std::cout << s.longestSpan() << std::endl;
-    //   std::cout << s.shortestSpan() << std::endl;
-    // }
+    // 5a.multiple add numbers
+    {
+      Span s(20000);
+      s.multipleAddNumbers(generateRandomNumbers(20000));
+      std::cout << s.longestSpan() << std::endl;
+      std::cout << s.shortestSpan() << std::endl;
+    }
+    // 5b.multiple multiple add numbers
+    {
+      Span s(200000);
+      s.multipleAddNumbers(generateRandomNumbers(200000));
+      std::cout << s.longestSpan() << std::endl;
+      std::cout << s.shortestSpan() << std::endl;
+    }
+    // 5c.multiple multiple multiple add numbers
+    {
+      Span s(20000000);
+      s.multipleAddNumbers(generateRandomNumbers(2000000));
+      std::cout << s.longestSpan() << std::endl;
+      std::cout << s.shortestSpan() << std::endl;
+    }
     // 6. Error multiple add number : not enough space
     // {
     //   Span s(20000);

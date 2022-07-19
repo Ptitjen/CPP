@@ -6,10 +6,11 @@
 
 class DiamondTrap : public virtual ScavTrap, public virtual FragTrap {
  public:
-  DiamondTrap(std::string name);                 // Constructeur par défaut
-  DiamondTrap(DiamondTrap const& f);             // Constructeur de recopie
-  DiamondTrap& operator=(DiamondTrap const& f);  // Operator d'affectation
-  ~DiamondTrap();                                // Destructeur
+  DiamondTrap();
+  DiamondTrap(std::string name);
+  DiamondTrap(DiamondTrap const& f);
+  DiamondTrap& operator=(DiamondTrap const& f);
+  ~DiamondTrap();
 
   void attack(const std::string& target);
   void whoAmI(void);

@@ -1,13 +1,17 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie(void) {}
+Zombie::Zombie(void) : name("No name") {}
 
-Zombie::~Zombie(void) {
-  std::cout << this->_name << " self-destructed itself..." << std::endl;
+Zombie::Zombie(std::string name) : name(name) {
+  std::cout << "Creating zombie " << this->name << "." << std::endl;
 }
 
-void Zombie::name(std::string(name)) { this->_name = name; }
+Zombie::~Zombie(void) {
+  std::cout << this->name << " self-destructed itself..." << std::endl;
+}
+
+void Zombie::setName(std::string(name)) { this->name = name; }
 
 void Zombie::announce(void) {
-  std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+  std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
