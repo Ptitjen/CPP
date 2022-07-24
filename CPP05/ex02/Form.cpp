@@ -4,9 +4,9 @@
 
 std::ostream& operator<<(std::ostream& os, const Form& f) {
   os << "Form " << f.getName()
-     << " / status: " << (f.getSigned() ? "signed" : "not signed")
-     << " / signGrade: " << f.getSignGrade()
-     << " / execGrade: " << f.getExecGrade() << std::endl;
+     << " - status: " << (f.getSigned() ? "signed" : "not signed")
+     << " - signGrade: " << f.getSignGrade()
+     << " - execGrade: " << f.getExecGrade() << std::endl;
   return os;
 }
 
@@ -51,9 +51,17 @@ Form& Form::operator=(Form const& f) {
   return (*this);
 };
 
-Form::~Form() {
-  std::cout << "Form Destructor called for " << name << std::endl;
+Form::~Form(){
+
 };
+
+const char* Form::GradeTooHighException::what() const throw() {
+  return ("\033[31mGrade too high.\033[0m");
+}
+
+const char* Form::GradeTooLowException::what() const throw() {
+  return ("\033[31mGrade too low.\033[0m");
+}
 
 bool Form::beSigned(Bureaucrat& b) {
   try {

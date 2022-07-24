@@ -55,6 +55,14 @@ Form::~Form() {
   std::cout << "Form Destructor called for " << name << std::endl;
 };
 
+const char* Form::GradeTooHighException::what() const throw() {
+  return ("\033[31mGrade too high.\033[0m");
+}
+
+const char* Form::GradeTooLowException::what() const throw() {
+  return ("\033[31mGrade too low.\033[0m");
+}
+
 bool Form::beSigned(Bureaucrat& b) {
   try {
     if (b.getGrade() > signGrade) {

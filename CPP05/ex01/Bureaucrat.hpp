@@ -1,3 +1,4 @@
+
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
@@ -10,7 +11,6 @@ class Bureaucrat;
 class Bureaucrat {
  public:
   Bureaucrat();
-
   Bureaucrat(std::string name, int n);
   Bureaucrat(Bureaucrat const& f);
   Bureaucrat& operator=(Bureaucrat const& f);

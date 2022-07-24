@@ -17,16 +17,12 @@ class Form {
 
   class GradeTooLowException : public std::exception {
    public:
-    virtual const char* what() const throw() {
-      return ("Form::Exception : Grade too low.");
-    }
+    virtual const char* what() const throw();
   };
 
   class GradeTooHighException : public std::exception {
    public:
-    virtual const char* what() const throw() {
-      return ("Form::Exception : Grade too high.");
-    }
+    virtual const char* what() const throw();
   };
 
   const int& getSignGrade() const;
