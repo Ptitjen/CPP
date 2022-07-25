@@ -16,20 +16,13 @@ Form::Form() : signGrade(150), execGrade(150) {
 
 Form::Form(std::string name, int signGrade, int execGrade)
     : name(name), sign(false), signGrade(signGrade), execGrade(execGrade) {
-  std::cout << "Form Default constructor called" << std::endl;
-  try {
-    if (signGrade > 150 || execGrade > 150)
-      throw(Form::GradeTooLowException());
-    if (signGrade < 0 || execGrade < 0)
-      throw(Form::GradeTooHighException());
+  std::cout << "Form Default constructor called with sign grade " << signGrade
+            << " and exec grade " << execGrade << std::endl;
 
-  } catch (GradeTooLowException& e) {
-    std::cout << e.what() << std::endl;
-    this->~Form();
-  } catch (GradeTooHighException& e) {
-    std::cout << e.what() << std::endl;
-    this->~Form();
-  }
+  if (signGrade > 150 || execGrade > 150)
+    throw(Form::GradeTooLowException());
+  if (signGrade <= 0 || execGrade <= 0)
+    throw(Form::GradeTooHighException());
 }
 
 Form::Form(Form const& f)
@@ -37,13 +30,13 @@ Form::Form(Form const& f)
       sign(f.getSigned()),
       signGrade(f.getSignGrade()),
       execGrade(f.getExecGrade()) {
-  std::cout << "Form copy constructor called for " << f << std::endl;
+  std::cout << "Form copy constructor called." << std::endl;
 }
 
 Form& Form::operator=(Form const& f) {
   if (&f == this)
     return (*this);
-  std::cout << "Form copy constructor called for " << f << std::endl;
+  std::cout << "Form copy constructor called." << std::endl;
   setName(f.getName());
   setSignGrade(f.getSignGrade());
   setExecGrade(f.getSignGrade());
@@ -51,9 +44,7 @@ Form& Form::operator=(Form const& f) {
   return (*this);
 };
 
-Form::~Form(){
-
-};
+Form::~Form(){};
 
 const char* Form::GradeTooHighException::what() const throw() {
   return ("\033[31mGrade too high.\033[0m");
@@ -64,19 +55,14 @@ const char* Form::GradeTooLowException::what() const throw() {
 }
 
 bool Form::beSigned(Bureaucrat& b) {
-  try {
-    if (b.getGrade() > signGrade) {
-      throw(Form::GradeTooLowException());
-    }
-    if (this->sign) {
-      return false;
-    }
-    sign = true;
-    return true;
-  } catch (Form::GradeTooLowException& e) {
-    std::cout << e.what() << std::endl;
+  if (b.getGrade() > signGrade) {
     return false;
   }
+  if (this->sign) {
+    return false;
+  }
+  sign = true;
+  return true;
 }
 
 const int& Form::getSignGrade() const {
@@ -111,17 +97,11 @@ void Form::setSign(bool newSign) {
 };
 
 bool Form::execute(Bureaucrat const& executor) const {
-  try {
-    if (executor.getGrade() > execGrade) {
-      throw(Form::GradeTooLowException());
-    }
-    if (!this->sign)
-      return false;
-    this->action();
-    return true;
-
-  } catch (Form::GradeTooLowException& e) {
-    std::cout << e.what() << std::endl;
-    return false;
+  if (executor.getGrade() > execGrade) {
+    throw(Form::GradeTooLowException());
   }
+  if (!this->sign)
+    return false;
+  this->action();
+  return true;
 }

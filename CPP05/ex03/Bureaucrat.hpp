@@ -1,3 +1,4 @@
+
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
@@ -33,6 +34,8 @@ class Bureaucrat {
   void decreaseGrade();
 
   void signForm(Form& f);
+
+  void executeForm(Form const& form);
 
  private:
   const std::string name;

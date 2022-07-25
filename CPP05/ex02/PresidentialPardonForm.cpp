@@ -14,7 +14,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target,
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const& f)
     : Form(f.getName(), f.getSignGrade(), f.getExecGrade()) {
   std::cout << "PresidentialPardonForm Copy constructor called" << std::endl;
-  target = f.target;  // pas sur - set get?
+  target = f.target;
 }
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(

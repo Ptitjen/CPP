@@ -35,7 +35,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 }
 
 void ShrubberyCreationForm::action() const {
-  std::ofstream ofs(target);
+  std::ofstream ofs(target.append("_shrubbery"));
   if (ofs.is_open()) {
     ofs << "               ,@@@@@@@,              " << std::endl
         << "       ,,,.   ,@@@@@@/@@,  .oo8888o.  " << std::endl

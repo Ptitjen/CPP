@@ -42,9 +42,7 @@ Form& Form::operator=(Form const& f) {
   return (*this);
 };
 
-Form::~Form() {
-  std::cout << "Form Destructor called." << std::endl;
-};
+Form::~Form(){};
 
 const char* Form::GradeTooHighException::what() const throw() {
   return ("\033[31mGrade too high.\033[0m");
