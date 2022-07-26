@@ -49,13 +49,13 @@ int main() {
               << "------------- Calling destructors -------------" << std::endl;
   }
   {
-    const Cat j;
-    const Dog i;
 
     std::cout << std::endl
               << "\033[1;32m---------------------------\033[0m" << std::endl
               << "\033[1;32mTesting Cat and Dog Classes\033[0m" << std::endl
               << "\033[1;32m---------------------------\033[0m" << std::endl;
+    const Cat j;
+    const Dog i;
     std::cout << std::endl << "Dog 1 : " << std::endl;
     std::cout << j.getType() << " says:" << std::endl;
     j.makeSound();

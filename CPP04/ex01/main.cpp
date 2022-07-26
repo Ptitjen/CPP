@@ -10,9 +10,9 @@ int main() {
                 << "\033[1;36mTesting leaks & destructors\033[0m" << std::endl
                 << "\033[1;36m---------------------------\033[0m" << std::endl;
 
-      const Animal* j = new Dog();
+      const Animal *j = new Dog();
       std::cout << "---" << std::endl;
-      const Animal* i = new Cat();
+      const Animal *i = new Cat();
       std::cout << "---" << std::endl;
       delete j;
       std::cout << "---" << std::endl;
@@ -27,7 +27,7 @@ int main() {
               << std::endl;
 
     int n = 10;
-    Animal* array[n];
+    Animal *array[n];
     std::cout << std::endl << "\033[1;32mCats:\033[0m" << std::endl;
     for (int i = 0; i < n / 2; i++) {
       array[i] = new Cat();
@@ -49,6 +49,7 @@ int main() {
               << "\033[1;36m------------------------\033[0m" << std::endl
               << "\033[1;36mTesting copy constructor\033[0m" << std::endl
               << "\033[1;36m------------------------\033[0m" << std::endl;
+    std::cout << "--- With Cats ---" << std::endl;
     Cat c3;
     Cat c4 = Cat(c3);
     std::cout << std::endl
@@ -59,6 +60,8 @@ int main() {
       std::cout << c3.getBrain()->getIdea(i) << " "
                 << c4.getBrain()->getIdea(i);
     }
+    std::cout << std::endl << "--- With Dogs ---" << std::endl;
+
     Dog d3;
     Dog d4 = Dog(d3);
     std::cout << std::endl
@@ -74,6 +77,8 @@ int main() {
               << "\033[1;34mTesting copy operator\033[0m" << std::endl
               << "\033[1;34m----------------------\033[0m" << std::endl;
 
+    std::cout << "--- With Cats ---" << std::endl;
+
     Cat c1;
     Cat c2 = c1;
 
@@ -85,6 +90,8 @@ int main() {
       std::cout << c1.getBrain()->getIdea(i) << " "
                 << c2.getBrain()->getIdea(i);
     std::cout << std::endl;
+    std::cout << std::endl << "--- With Dogs ---" << std::endl;
+
     Dog d1;
     Dog d2 = d1;
     std::cout << std::endl
