@@ -1,5 +1,6 @@
 #include <cmath>
 #include <cstdlib>
+#include <iomanip>
 #include <iostream>
 #include <limits>
 #include <string>
@@ -17,7 +18,7 @@ bool isPrintable(char c) {
   return true;
 }
 
-bool isSpecial(std::string str) {
+bool isSpecial(std::string& str) {
   if (str == "-inff" || str == "+inff" || str == "nanf" || str == "-inf" ||
       str == "+inf" || str == "nan")
     return true;
@@ -59,7 +60,7 @@ bool isInt(std::string str) {
 }
 
 bool isChar(std::string str) {
-  if (isdigit(str[0]) == 1 || str.length() != 1)
+  if (isdigit(str[0]) != 0 || str.length() != 1)
     return false;
   return true;
 }
@@ -83,6 +84,11 @@ bool isFloat(std::string str) {
   }
   return false;
 }
+bool isOtherStr(std::string str) {
+  if (isalpha(str[0]) != 0 && str.length() > 1)
+    return true;
+  return false;
+}
 
 void convertInt(int i) {
   std::cout << "char: ";
@@ -90,32 +96,36 @@ void convertInt(int i) {
       i < std::numeric_limits<char>::min())
     std::cout << "Overflow" << std::endl;
   else if (!isPrintable(static_cast<char>(i)))
-    (std::cout << "Not displayable" << std::endl);
+    (std::cout << "Non displayable" << std::endl);
   else
-    std::cout << static_cast<char>(i) << std::endl;
+    std::cout << "'" << static_cast<char>(i) << "'" << std::endl;
 
   std::cout << "int: ";
   std::cout << static_cast<int>(i) << std::endl;
 
   std::cout << "float: ";
-  std::cout << std::fixed << static_cast<float>(i) << "f" << std::endl;
+  std::cout << std::fixed << std::setprecision(1) << static_cast<float>(i)
+            << "f" << std::endl;
 
   std::cout << "double: ";
-  std::cout << std::fixed << static_cast<double>(i) << std::endl;
+  std::cout << std::fixed << std::setprecision(1) << static_cast<double>(i)
+            << std::endl;
 }
 
 void convertChar(char str) {
   std::cout << "char: ";
-  std::cout << static_cast<char>(str) << std::endl;
+  std::cout << "'" << str << "'" << std::endl;
 
   std::cout << "int: ";
   std::cout << static_cast<int>(str) << std::endl;
 
   std::cout << "float: ";
-  std::cout << std::fixed << static_cast<float>(str) << "f" << std::endl;
+  std::cout << std::fixed << std::setprecision(1) << static_cast<float>(str)
+            << "f" << std::endl;
 
   std::cout << "double: ";
-  std::cout << std::fixed << static_cast<double>(str) << std::endl;
+  std::cout << std::fixed << std::setprecision(1) << static_cast<double>(str)
+            << std::endl;
 }
 
 void convertFloat(double f) {
@@ -126,9 +136,9 @@ void convertFloat(double f) {
       f < std::numeric_limits<char>::min())
     std::cout << "Overflow" << std::endl;
   else if (!isPrintable(static_cast<char>(f)) || fractpart != 0)
-    (std::cout << "Not displayable" << std::endl);
+    (std::cout << "Non displayable" << std::endl);
   else
-    std::cout << static_cast<char>(f) << std::endl;
+    std::cout << "'" << static_cast<char>(f) << "'" << std::endl;
 
   std::cout << "int: ";
   if (f >= 2147483647 || f <= -2147483648)
@@ -136,11 +146,21 @@ void convertFloat(double f) {
   else
     std::cout << (static_cast<int>(f)) << std::endl;
 
-  std::cout << "float: ";
-  std::cout << std::fixed << static_cast<float>(f) << "f" << std::endl;
+  if (fractpart == 0) {
+    std::cout << "float: ";
+    std::cout << std::fixed << std::setprecision(1) << static_cast<float>(f)
+              << "f" << std::endl;
 
-  std::cout << "double: ";
-  std::cout << std::fixed << static_cast<double>(f) << std::endl;
+    std::cout << "double: ";
+    std::cout << std::fixed << std::setprecision(1) << static_cast<double>(f)
+              << std::endl;
+  } else {
+    std::cout << "float: ";
+    std::cout << static_cast<float>(f) << "f" << std::endl;
+
+    std::cout << "double: ";
+    std::cout << static_cast<double>(f) << std::endl;
+  }
 }
 
 void convertDouble(double d) {
@@ -152,9 +172,9 @@ void convertDouble(double d) {
       d < std::numeric_limits<char>::min())
     std::cout << "Overflow" << std::endl;
   else if (!isPrintable(static_cast<char>(d)) || fractpart != 0)
-    (std::cout << "Not displayable" << std::endl);
+    (std::cout << "Non displayable" << std::endl);
   else
-    std::cout << static_cast<char>(d) << std::endl;
+    std::cout << "'" << static_cast<char>(d) << "'" << std::endl;
 
   std::cout << "int: ";
   if (d >= 2147483647 || d <= -2147483648)
@@ -166,14 +186,22 @@ void convertDouble(double d) {
   if (d >= std::numeric_limits<float>::max() ||
       d <= -std::numeric_limits<float>::max())
     std::cout << "Overflow" << std::endl;
-  else
-    std::cout << std::fixed << static_cast<float>(d) << "f" << std::endl;
-
+  else {
+    if (fractpart == 0)
+      std::cout << std::fixed << std::setprecision(1) << static_cast<float>(d)
+                << "f" << std::endl;
+    else
+      std::cout << static_cast<float>(d) << std::endl;
+  }
   std::cout << "double: ";
-  std::cout << std::fixed << static_cast<double>(d) << std::endl;
+  if (fractpart == 0)
+    std::cout << std::fixed << std::setprecision(1) << static_cast<double>(d)
+              << "f" << std::endl;
+  else
+    std::cout << static_cast<double>(d) << std::endl;
 }
 
-void convertSpecial(std::string str) {
+void convertSpecial(std::string& str) {
   if (str == "-inff" || str == "-inf") {
     std::cout << "char: impossible" << std::endl;
     std::cout << "int: impossible" << std::endl;
@@ -195,16 +223,19 @@ void convertSpecial(std::string str) {
 }
 
 int getArgType(std::string str) {
+  if (isSpecial(str))
+    return SPEC;
+  if (isChar(str))
+    return (CHAR);
+  if (isOtherStr(str))
+    return NONE;
   if (isInt(str))
     return (INT);
   if (isFloat(str))
     return (FLOAT);
   if (isDouble(str))
     return (DOUBLE);
-  if (isChar(str))
-    return (CHAR);
-  if (isSpecial(str))
-    return SPEC;
+
   return NONE;
 }
 
@@ -229,6 +260,10 @@ int main(int argc, char** argv) {
       }
       case CHAR: {
         convertChar(str[0]);
+        break;
+      }
+      case SPEC: {
+        convertSpecial(str);
         break;
       }
       case NONE: {
