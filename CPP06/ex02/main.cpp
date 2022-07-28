@@ -1,6 +1,5 @@
 #include <exception>
 #include <iostream>
-#include <typeinfo>
 
 #include "A.hpp"
 #include "B.hpp"
@@ -29,19 +28,19 @@ void identify(Base& p) {
     (void)dynamic_cast<C&>(p);
     std::cout << "Type C" << std::endl;
 
-  } catch (std::bad_cast) {
+  } catch (std::exception& e) {
   }
   try {
     (void)dynamic_cast<B&>(p);
     std::cout << "Type B" << std::endl;
 
-  } catch (std::bad_cast) {
+  } catch (std::exception& e) {
   }
   try {
     (void)dynamic_cast<A&>(p);
     std::cout << "Type A" << std::endl;
 
-  } catch (std::bad_cast& e) {
+  } catch (std::exception& e) {
   }
 };
 

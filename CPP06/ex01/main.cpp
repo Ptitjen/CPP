@@ -19,13 +19,15 @@ Data* deserialize(uintptr_t raw) {
 };
 
 int main() {
-  Data* data = new Data(28, "Bliblou");
+  Data* data = new Data(28, "Data");
+
   std::cout << &data << std::endl;
   std::cout << "d-age : " << data->age << std::endl;
   std::cout << "d-name : " << data->age << std::endl << std::endl;
 
   uintptr_t p = serialize(data);
   Data* data2 = deserialize(p);
+
   std::cout << &data2 << std::endl;
   std::cout << "d2-age : " << data2->age << std::endl;
   std::cout << "d2-name : " << data2->age << std::endl << std::endl;

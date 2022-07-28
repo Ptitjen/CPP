@@ -28,6 +28,18 @@ bool isSpecial(std::string& str) {
 bool isDouble(std::string str) {
   char* pEnd;
   double result;
+  int start = 0;
+  int count_dot = 0;
+  if (str[0] == '-')
+    start = 1;
+  for (std::string::size_type i = start; i < str.length(); i++) {
+    if (str[i] == '.') {
+      if (count_dot >= 1)
+        return false;
+      count_dot = 1;
+    } else if (isdigit(str[i]) == 0)
+      return false;
+  }
   result = strtod(str.c_str(), &pEnd);
   if (str[str.length() - 1] == 'f')
     return false;
@@ -84,6 +96,7 @@ bool isFloat(std::string str) {
   }
   return false;
 }
+
 bool isOtherStr(std::string str) {
   if (isalpha(str[0]) != 0 && str.length() > 1)
     return true;
@@ -242,9 +255,7 @@ int getArgType(std::string str) {
 int main(int argc, char** argv) {
   if (argc == 2) {
     std::string str = argv[1];
-
     int type = getArgType(str);
-
     switch (type) {
       case INT: {
         convertInt(atoi(str.c_str()));
@@ -270,7 +281,6 @@ int main(int argc, char** argv) {
         std::cout << "Invalid input." << std::endl;
       }
     }
-
   } else {
     std::cout << "Wrong number of arguments." << std::endl;
   }
