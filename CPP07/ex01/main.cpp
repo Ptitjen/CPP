@@ -1,24 +1,5 @@
 #include <iostream>
-
-template <typename T>
-void iter(T* array, int size, void(f)(T const& x)) {
-  for (int i = 0; i < size; i++) {
-    f(array[i]);
-  }
-}
-template <typename T>
-void iter(T* array, int size, void(f)(T x)) {
-  for (int i = 0; i < size; i++) {
-    f(array[i]);
-  }
-}
-template <typename T>
-void iter(T* array, int size, void(f)(T* x)) {
-  for (int i = 0; i < size; i++) {
-    f(array[i]);
-  }
-}
-// sortir les templates dans un autre fichier
+#include "iter.hpp"
 
 class Awesome {
  public:
@@ -40,9 +21,23 @@ void print(T const& x) {
 }
 
 int main() {
-  int tab[] = {0, 1, 2, 3, 4};
-  Awesome tab2[5];
-  iter(tab, 5, print);
-  iter(tab2, 5, print);
+  {
+    std::cout << "Int tab:" << std::endl;
+    int tab[] = {0, 1, 2, 3, 4};
+    Awesome tab2[5];
+    iter(tab, 5, print);
+    std::cout << "Awesome tab:" << std::endl;
+    iter(tab2, 5, print);
+  }
+  {
+    std::cout << std::endl << "String tab:" << std::endl;
+    std::string tab[] = {"Unicorn", "Zombicorn", "Brocolicorn"};
+    iter(tab, 3, print);
+  }
+  {
+    std::cout << std::endl << "Double tab:" << std::endl;
+    double tab[] = {1.5, 5.6, 42.42};
+    iter(tab, 3, print);
+  }
   return 0;
 }

@@ -3,15 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jeulliot <jeulliot@student.42.fr>          +#+  +:+       +#+         #
+#    By: jenny <jenny@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 16:13:33 by jeulliot          #+#    #+#              #
-#    Updated: 2022/07/14 12:45:36 by jeulliot         ###   ########.fr        #
+#    Updated: 2022/07/28 22:21:30 by jenny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= main.cpp
-			
+SRCS	= main.cpp 
 			
 NAME	= templates
 
